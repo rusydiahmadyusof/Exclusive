@@ -27,7 +27,7 @@ export const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="#" className="hover:underline">
-                  111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
+                  No. 123, Jalan Bukit Bintang, 55100 Kuala Lumpur, Malaysia
                 </Link>
               </li>
               <li>
@@ -37,7 +37,7 @@ export const Footer = () => {
               </li>
               <li>
                 <Link href="#" className="hover:underline">
-                  +88015-88888-9999
+                  +6012-345-6789
                 </Link>
               </li>
             </ul>
