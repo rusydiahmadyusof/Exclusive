@@ -51,7 +51,6 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const { firstName, lastName, companyName, streetAddress, apartment, city, state, postcode, phoneNumber, emailAddress, isDefault } = body
 
-    // If this is set as default, unset other defaults
     if (isDefault) {
       await supabase
         .from('addresses')

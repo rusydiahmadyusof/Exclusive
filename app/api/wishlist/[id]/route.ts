@@ -9,12 +9,10 @@ export async function DELETE(
   try {
     const supabase = createServerClient()
 
-    // Validate UUID format
     if (!isValidUUID(params.id)) {
       return NextResponse.json({ error: 'Invalid wishlist item ID' }, { status: 400 })
     }
 
-    // Get current user
     const {
       data: { user },
       error: authError,

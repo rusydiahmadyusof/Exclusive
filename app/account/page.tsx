@@ -41,7 +41,6 @@ export default function Account() {
     },
   });
 
-  // Load profile data into form
   useEffect(() => {
     if (profile) {
       profileForm.reset({

@@ -18,7 +18,6 @@ export async function PUT(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    // Validate UUID format
     if (!isValidUUID(params.id)) {
       return NextResponse.json({ error: 'Invalid address ID' }, { status: 400 })
     }
@@ -26,7 +25,6 @@ export async function PUT(
     const body = await request.json()
     const { firstName, lastName, companyName, streetAddress, apartment, city, state, postcode, phoneNumber, emailAddress, isDefault } = body
 
-    // If this is set as default, unset other defaults
     if (isDefault) {
       await supabase
         .from('addresses')

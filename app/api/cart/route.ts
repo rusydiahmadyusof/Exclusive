@@ -7,7 +7,6 @@ export async function GET() {
   try {
     const supabase = createServerClient()
 
-    // Get current user
     const {
       data: { user },
       error: authError,
@@ -17,7 +16,6 @@ export async function GET() {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    // Get cart items with product details
     const { data, error } = await supabase
       .from('cart_items')
       .select('*, products(*)')
@@ -38,7 +36,6 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  // Apply rate limiting
   const rateLimitedHandler = withRateLimit(
     { ...rateLimitPresets.standard, useUserId: true },
     async (req: Request) => {
@@ -52,7 +49,6 @@ async function handleAddToCart(request: Request) {
   try {
     const supabase = createServerClient()
 
-    // Get current user
     const {
       data: { user },
       error: authError,
@@ -74,7 +70,6 @@ async function handleAddToCart(request: Request) {
       return NextResponse.json({ error: 'Quantity must be between 1 and 999' }, { status: 400 })
     }
 
-    // Check if item already exists in cart
     const { data: existingItem } = await supabase
       .from('cart_items')
       .select('*')
@@ -83,7 +78,6 @@ async function handleAddToCart(request: Request) {
       .single()
 
     if (existingItem) {
-      // Update quantity with validation
       const newQuantity = Math.min(existingItem.quantity + validatedQuantity, 999)
       const { data, error } = await supabase
         .from('cart_items')
@@ -98,7 +92,6 @@ async function handleAddToCart(request: Request) {
 
       return NextResponse.json({ item: data })
     } else {
-      // Create new cart item
       const { data, error } = await supabase
         .from('cart_items')
         .insert({

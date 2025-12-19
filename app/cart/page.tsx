@@ -26,7 +26,7 @@ export default function Cart() {
     try {
       await updateCartItem.mutateAsync({ id, quantity: newQuantity });
     } catch (error) {
-      // Error handling is done by React Query
+      // Silent error handling
     }
   };
 
@@ -34,21 +34,16 @@ export default function Cart() {
     try {
       await removeFromCart.mutateAsync(id);
     } catch (error) {
-      // Error handling is done by React Query
+      // Silent error handling
     }
   };
 
   const handleApplyCoupon = () => {
-    // TODO: Implement coupon validation with API endpoint
-    // Coupon functionality will be added in future update
+    // Coupon functionality not yet implemented
   };
 
   const handleCheckout = () => {
     router.push('/checkout');
-  };
-
-  const handleUpdateCart = () => {
-    // Cart updates automatically via React Query mutations
   };
 
   const subtotal =
@@ -152,7 +147,7 @@ export default function Cart() {
                     Return To Shop
                   </Link>
                   <button
-                    onClick={handleUpdateCart}
+                    onClick={() => {}}
                     className="border border-black/50 rounded px-12 py-4 text-base font-medium leading-6 text-black hover:bg-gray-50 transition-colors"
                   >
                     Update Cart

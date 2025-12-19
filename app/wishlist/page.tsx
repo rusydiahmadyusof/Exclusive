@@ -20,7 +20,7 @@ export default function Wishlist() {
     try {
       await removeFromWishlist.mutateAsync(id);
     } catch (error) {
-      // Error handling is done by React Query mutations
+      // Silent error handling
     }
   };
 
@@ -28,7 +28,7 @@ export default function Wishlist() {
     try {
       await addToCart.mutateAsync({ product_id: productId, quantity: 1 });
     } catch (error) {
-      // Error handling is done by React Query mutations
+      // Silent error handling
     }
   };
 
@@ -38,7 +38,7 @@ export default function Wishlist() {
       try {
         await addToCart.mutateAsync({ product_id: item.product_id, quantity: 1 });
       } catch (error) {
-        // Error handling is done by React Query mutations
+        // Silent error handling
       }
     }
   };

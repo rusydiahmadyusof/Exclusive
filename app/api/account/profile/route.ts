@@ -14,7 +14,6 @@ export async function GET() {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    // Get user metadata
     const profile = {
       firstName: user.user_metadata?.first_name || user.user_metadata?.name?.split(' ')[0] || '',
       lastName: user.user_metadata?.last_name || user.user_metadata?.name?.split(' ').slice(1).join(' ') || '',
@@ -47,7 +46,6 @@ export async function PUT(request: NextRequest) {
     const body = await request.json()
     const { firstName, lastName, email, address } = body
 
-    // Update user metadata
     const { data, error } = await supabase.auth.updateUser({
       email: email !== user.email ? email : undefined,
       data: {

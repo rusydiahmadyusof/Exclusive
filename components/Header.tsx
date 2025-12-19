@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
@@ -48,13 +47,12 @@ export const Header = () => {
       await signOut();
       setIsDropdownOpen(false);
     } catch (error) {
-      // Error handling is done by auth context
+      // Silent error handling
     }
   };
 
   return (
-    <>
-      <div className="w-full max-w-[1170px] mx-auto min-h-[38px] flex items-center justify-between relative">
+    <div className="w-full max-w-[1170px] mx-auto min-h-[38px] flex items-center justify-between relative">
         <div className="flex items-center gap-4 lg:gap-8 xl:gap-[190px] flex-1">
           <Link href="/" className="text-xl sm:text-2xl font-bold text-black tracking-[0.72px] flex-shrink-0">
             Exclusive
@@ -256,11 +254,11 @@ export const Header = () => {
               )}
             </svg>
           </button>
+          </div>
         </div>
-      </div>
-      {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50 mt-2">
-          <nav className="flex flex-col py-4">
+        {isMobileMenuOpen && (
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50 mt-2">
+            <nav className="flex flex-col py-4">
             <Link
               href="/"
               className={`px-4 py-3 text-base font-normal text-black ${
@@ -323,10 +321,10 @@ export const Header = () => {
                 </svg>
               </div>
             </div>
-          </nav>
-        </div>
-      )}
-    </>
+            </nav>
+          </div>
+        )}
+    </div>
   );
 };
 

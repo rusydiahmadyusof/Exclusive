@@ -9,12 +9,10 @@ export async function PUT(
   try {
     const supabase = createServerClient()
 
-    // Validate UUID format
     if (!isValidUUID(params.id)) {
       return NextResponse.json({ error: 'Invalid cart item ID' }, { status: 400 })
     }
 
-    // Get current user
     const {
       data: { user },
       error: authError,
@@ -59,7 +57,6 @@ export async function DELETE(
   try {
     const supabase = createServerClient()
 
-    // Get current user
     const {
       data: { user },
       error: authError,

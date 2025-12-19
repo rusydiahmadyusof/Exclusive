@@ -48,15 +48,11 @@ export const CategorySidebar = () => {
     { name: 'Health & Beauty' },
   ];
 
-  const handleMouseEnter = (categoryName: string) => {
+  const handleToggleDropdown = (categoryName: string) => {
     const category = categories.find((cat) => cat.name === categoryName);
     if (category?.hasDropdown) {
-      setOpenDropdown(categoryName);
+      setOpenDropdown(openDropdown === categoryName ? null : categoryName);
     }
-  };
-
-  const handleMouseLeave = () => {
-    setOpenDropdown(null);
   };
 
   return (
@@ -66,39 +62,46 @@ export const CategorySidebar = () => {
           <div
             key={index}
             className="relative flex items-center justify-between cursor-pointer hover:text-[#DB4444] transition-colors"
-            onMouseEnter={() => handleMouseEnter(category.name)}
-            onMouseLeave={handleMouseLeave}
           >
             <Link
               href={`/category/${category.name.toLowerCase().replace(/\s+/g, '-')}`}
-              className="text-sm sm:text-base font-normal leading-6 text-black hover:text-[#DB4444] transition-colors"
+              className="text-sm sm:text-base font-normal leading-6 text-black hover:text-[#DB4444] transition-colors flex-1"
             >
               {category.name}
             </Link>
             {category.hasDropdown && (
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="black"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={`transition-transform sm:w-6 sm:h-6 ${
-                  openDropdown === category.name ? 'rotate-180' : ''
-                }`}
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleToggleDropdown(category.name);
+                }}
+                className="flex items-center justify-center hover:text-[#DB4444] transition-colors"
+                aria-label={`Toggle ${category.name} menu`}
               >
-                <path d="M6 9l6 6 6-6" />
-              </svg>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={`transition-transform sm:w-6 sm:h-6 ${
+                    openDropdown === category.name ? 'rotate-180' : ''
+                  }`}
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
             )}
             {openDropdown === category.name && category.subcategories && (
-              <div className="absolute left-full top-0 ml-2 w-[180px] sm:w-[200px] bg-white border border-gray-200 rounded-[4px] shadow-lg z-50 py-2">
+              <div className="absolute left-0 top-full mt-1 w-full bg-white border border-gray-200 rounded-[4px] shadow-lg z-50 py-2">
                 {category.subcategories.map((subcategory, subIndex) => (
                   <Link
                     key={subIndex}
                     href={`/category/${category.name.toLowerCase().replace(/\s+/g, '-')}/${subcategory.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="block px-3 sm:px-4 py-2 text-sm sm:text-base font-normal leading-6 text-black hover:bg-gray-50 hover:text-[#DB4444] transition-colors"
+                    className="block px-4 py-2 text-base font-normal leading-6 text-black hover:bg-gray-50 hover:text-[#DB4444] transition-colors"
                     onClick={() => setOpenDropdown(null)}
                   >
                     {subcategory}

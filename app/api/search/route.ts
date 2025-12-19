@@ -4,7 +4,6 @@ import { sanitizeSearchQuery } from '@/lib/utils/validation'
 import { withRateLimit, rateLimitPresets } from '@/lib/middleware/rateLimit'
 
 export async function GET(request: Request) {
-  // Apply rate limiting
   const rateLimitedHandler = withRateLimit(
     rateLimitPresets.search,
     async (req: Request) => {
@@ -24,14 +23,12 @@ async function handleSearch(request: Request) {
       return NextResponse.json({ products: [] })
     }
 
-    // Sanitize search query to prevent injection
     const query = sanitizeSearchQuery(rawQuery)
     
     if (!query) {
       return NextResponse.json({ products: [] })
     }
 
-    // Use parameterized query - Supabase handles this safely
     const { data, error } = await supabase
       .from('products')
       .select('*, categories(*)')

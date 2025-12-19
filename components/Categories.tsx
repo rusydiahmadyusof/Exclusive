@@ -24,7 +24,6 @@ export const Categories = () => {
     return null;
   }
 
-  // Map category icons (you can customize this based on your category names)
   const getCategoryIcon = (name: string) => {
     const nameLower = name.toLowerCase();
     if (nameLower.includes('phone')) return '📱';
@@ -36,7 +35,6 @@ export const Categories = () => {
     return '📦';
   };
 
-  // Limit to 6 categories for better visual balance
   const displayCategories = categories.slice(0, 6);
 
   return (

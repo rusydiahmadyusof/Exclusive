@@ -63,11 +63,9 @@ export default function Checkout() {
     try {
       let addressId: string | undefined = undefined;
 
-      // If using saved address
       if (!useNewAddress && selectedAddressId) {
         addressId = selectedAddressId;
       } else if (useNewAddress && data.saveInfo) {
-        // Save new address if "save info" is checked
         try {
           const addressResult = await createAddress.mutateAsync({
             firstName: data.firstName,
@@ -85,11 +83,9 @@ export default function Checkout() {
           addressId = addressResult.address.id;
         } catch (error) {
           // Continue with order even if address save fails
-          // Error is handled silently to not expose sensitive information
         }
       }
 
-      // Prepare order items
       const items = cartItems.map((item) => ({
         product_id: item.product_id,
         product_name: item.product?.name || 'Product',
@@ -98,7 +94,6 @@ export default function Checkout() {
         price: item.product?.price || 0,
       }));
 
-      // Create order
       const result = await createOrder.mutateAsync({
         items,
         shipping_address_id: addressId,
@@ -110,10 +105,9 @@ export default function Checkout() {
         total,
       });
 
-      // Redirect to order confirmation
       router.push(`/orders/${result.order.id}`);
     } catch (error) {
-      // Error handling is done by React Query mutations
+      // Silent error handling
     }
   };
 

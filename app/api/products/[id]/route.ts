@@ -10,7 +10,6 @@ export async function GET(
     const supabase = createServerClient()
     const { id } = params
 
-    // Validate UUID format
     if (!isValidUUID(id)) {
       return NextResponse.json({ error: 'Invalid product ID' }, { status: 400 })
     }

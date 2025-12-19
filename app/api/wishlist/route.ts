@@ -7,7 +7,6 @@ export async function GET() {
   try {
     const supabase = createServerClient()
 
-    // Get current user
     const {
       data: { user },
       error: authError,
@@ -17,7 +16,6 @@ export async function GET() {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    // Get wishlist items with product details
     const { data, error } = await supabase
       .from('wishlist_items')
       .select('*, products(*)')
@@ -38,7 +36,6 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  // Apply rate limiting
   const rateLimitedHandler = withRateLimit(
     { ...rateLimitPresets.standard, useUserId: true },
     async (req: Request) => {
@@ -52,7 +49,6 @@ async function handleAddToWishlist(request: Request) {
   try {
     const supabase = createServerClient()
 
-    // Get current user
     const {
       data: { user },
       error: authError,
@@ -65,12 +61,10 @@ async function handleAddToWishlist(request: Request) {
     const body = await request.json()
     const { product_id } = body
 
-    // Validate UUID format
     if (!product_id || !isValidUUID(product_id)) {
       return NextResponse.json({ error: 'Valid product ID is required' }, { status: 400 })
     }
 
-    // Check if already in wishlist
     const { data: existing } = await supabase
       .from('wishlist_items')
       .select('*')
@@ -82,7 +76,6 @@ async function handleAddToWishlist(request: Request) {
       return NextResponse.json({ error: 'Product already in wishlist' }, { status: 400 })
     }
 
-    // Add to wishlist
     const { data, error } = await supabase
       .from('wishlist_items')
       .insert({

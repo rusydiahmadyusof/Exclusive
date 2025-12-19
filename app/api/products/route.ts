@@ -7,7 +7,6 @@ export async function GET(request: Request) {
     const supabase = createServerClient()
     const { searchParams } = new URL(request.url)
 
-    // Get and validate query parameters
     const category = searchParams.get('category')
     const rawSearch = searchParams.get('search')
     const featured = searchParams.get('featured') === 'true'
@@ -15,26 +14,20 @@ export async function GET(request: Request) {
     const newArrival = searchParams.get('newArrival') === 'true'
     const flashSale = searchParams.get('flashSale') === 'true'
     
-    // Validate and sanitize numeric inputs
     const limit = validateNumber(searchParams.get('limit'), 1, 100) || 100
     const offset = validateNumber(searchParams.get('offset'), 0, 10000) || 0
     
-    // Validate category UUID if provided
     if (category && !isValidUUID(category)) {
       return NextResponse.json({ error: 'Invalid category ID' }, { status: 400 })
     }
     
-    // Sanitize search query
     const search = rawSearch ? sanitizeSearchQuery(rawSearch) : null
 
-    // Build query
     let query = supabase
       .from('products')
       .select('*, categories(*)')
       .order('created_at', { ascending: false })
       .range(offset, offset + limit - 1)
-
-    // Apply filters
     if (category) {
       query = query.eq('category_id', category)
     }

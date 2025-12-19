@@ -36,7 +36,7 @@ export default function SignUp() {
   };
 
   const handleGoogleSignUp = () => {
-    // Google OAuth integration pending
+    // Not implemented
   };
 
   return (

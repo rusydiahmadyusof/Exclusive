@@ -46,7 +46,7 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
       await addToCart.mutateAsync({ product_id: product.id, quantity });
       router.push('/checkout');
     } catch (error) {
-      // Error handling is done by React Query mutations
+      // Silent error handling
     }
   };
 
@@ -55,7 +55,7 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
     try {
       await addToCart.mutateAsync({ product_id: product.id, quantity });
     } catch (error) {
-      // Error handling is done by React Query mutations
+      // Silent error handling
     }
   };
 
@@ -68,7 +68,7 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
         await addToWishlist.mutateAsync(product.id);
       }
     } catch (error) {
-      // Error handling is done by React Query mutations
+      // Silent error handling
     }
   };
 

@@ -9,12 +9,10 @@ export async function GET(
   try {
     const supabase = createServerClient()
 
-    // Validate UUID format
     if (!isValidUUID(params.id)) {
       return NextResponse.json({ error: 'Invalid order ID' }, { status: 400 })
     }
 
-    // Get current user
     const {
       data: { user },
       error: authError,
@@ -24,7 +22,6 @@ export async function GET(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    // Get order with items
     const { data, error } = await supabase
       .from('orders')
       .select('*, order_items(*, products(*)), shipping_address:addresses(*)')

@@ -3,7 +3,6 @@ import { createServerClient } from '@/lib/supabase/server'
 import { withRateLimit, rateLimitPresets } from '@/lib/middleware/rateLimit'
 
 export async function PUT(request: NextRequest) {
-  // Apply strict rate limiting for password changes
   const rateLimitedHandler = withRateLimit(
     { ...rateLimitPresets.strict, useUserId: true },
     async (req: Request) => {
@@ -29,7 +28,6 @@ async function handlePasswordUpdate(request: Request) {
     const body = await request.json()
     const { currentPassword, newPassword } = body
 
-    // Verify current password by attempting to sign in
     const { error: signInError } = await supabase.auth.signInWithPassword({
       email: user.email!,
       password: currentPassword,
@@ -42,7 +40,6 @@ async function handlePasswordUpdate(request: Request) {
       )
     }
 
-    // Update password
     const { error: updateError } = await supabase.auth.updateUser({
       password: newPassword,
     })
