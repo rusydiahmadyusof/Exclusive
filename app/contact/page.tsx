@@ -40,13 +40,13 @@ export default function Contact() {
     <main className="min-h-screen bg-white">
       <TopHeader />
       <div className="border-b border-gray-200" />
-      <div className="px-[135px] py-6">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-6">
         <Header />
       </div>
       <div className="border-b border-gray-200" />
 
       {/* Breadcrumb */}
-      <div className="px-[135px] py-4">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-4">
         <div className="flex items-center gap-3">
           <Link
             href="/"
@@ -73,10 +73,10 @@ export default function Contact() {
         </div>
       </div>
 
-      <div className="px-[135px] py-16">
-        <div className="max-w-[1170px] mx-auto flex gap-[25px]">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-8 sm:py-12 lg:py-16">
+        <div className="max-w-[1170px] mx-auto flex flex-col lg:flex-row gap-6 lg:gap-[25px]">
           {/* Left Panel - Contact Information */}
-          <div className="w-[340px] bg-white rounded shadow-[0px_1px_13px_0px_rgba(0,0,0,0.05)] p-9 flex flex-col gap-8">
+          <div className="w-full lg:w-[340px] bg-white rounded shadow-[0px_1px_13px_0px_rgba(0,0,0,0.05)] p-6 sm:p-8 lg:p-9 flex flex-col gap-6 lg:gap-8">
             {/* Call To Us Section */}
             <div className="flex flex-col gap-6">
               <div className="flex items-center gap-4">
@@ -138,15 +138,15 @@ export default function Contact() {
           </div>
 
           {/* Right Panel - Contact Form */}
-          <div className="flex-1 bg-white rounded shadow-[0px_1px_13px_0px_rgba(0,0,0,0.05)] p-10">
+          <div className="flex-1 bg-white rounded shadow-[0px_1px_13px_0px_rgba(0,0,0,0.05)] p-6 sm:p-8 lg:p-10">
             {submitSuccess && (
               <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded text-green-600 text-sm">
                 Message sent successfully! We'll get back to you within 24 hours.
               </div>
             )}
-            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-8 items-end">
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6 sm:gap-8 items-end">
               {/* Top Row - Name, Email, Phone */}
-              <div className="flex gap-4 w-full">
+              <div className="flex flex-col sm:flex-row gap-4 w-full">
                 <div className="flex-1 flex flex-col gap-2">
                   <input
                     type="text"
@@ -202,7 +202,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-[#DB4444] text-white text-base font-medium leading-6 px-12 py-4 rounded hover:bg-[#c03939] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full sm:w-auto bg-[#DB4444] text-white text-base font-medium leading-6 px-8 sm:px-12 py-3 sm:py-4 rounded hover:bg-[#c03939] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>

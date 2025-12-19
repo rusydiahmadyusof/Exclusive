@@ -24,6 +24,7 @@ export const Header = () => {
   const pathname = usePathname();
   const { isAuthenticated, user, signOut } = useAuth();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -52,75 +53,76 @@ export const Header = () => {
   };
 
   return (
-    <div className="w-full max-w-[1170px] mx-auto h-[38px] flex items-center justify-between relative">
-      <div className="flex items-center gap-[190px]">
-        <Link href="/" className="text-2xl font-bold text-black tracking-[0.72px]">
-          Exclusive
-        </Link>
-        <nav className="flex items-center gap-12">
-          <Link
-            href="/"
-            className={`text-base font-normal text-black leading-6 whitespace-nowrap ${
-              pathname === '/' ? 'underline decoration-black' : 'hover:underline hover:decoration-black'
-            }`}
-          >
-            Home
+    <>
+      <div className="w-full max-w-[1170px] mx-auto min-h-[38px] flex items-center justify-between relative">
+        <div className="flex items-center gap-4 lg:gap-8 xl:gap-[190px] flex-1">
+          <Link href="/" className="text-xl sm:text-2xl font-bold text-black tracking-[0.72px] flex-shrink-0">
+            Exclusive
           </Link>
-          <Link
-            href="/contact"
-            className={`text-base font-normal text-black leading-6 whitespace-nowrap ${
-              pathname === '/contact' ? 'underline decoration-black' : 'hover:underline hover:decoration-black'
-            }`}
-          >
-            Contact
-          </Link>
-          <Link
-            href="/about"
-            className={`text-base font-normal text-black leading-6 whitespace-nowrap ${
-              pathname === '/about' ? 'underline decoration-black' : 'hover:underline hover:decoration-black'
-            }`}
-          >
-            About
-          </Link>
-          {!isAuthenticated && (
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-12">
             <Link
-              href="/signup"
+              href="/"
               className={`text-base font-normal text-black leading-6 whitespace-nowrap ${
-                pathname === '/signup' ? 'underline decoration-black' : 'hover:underline hover:decoration-black'
+                pathname === '/' ? 'underline decoration-black' : 'hover:underline hover:decoration-black'
               }`}
             >
-              Sign Up
+              Home
             </Link>
-          )}
-        </nav>
-      </div>
-      <div className="flex items-center gap-6 ml-8">
-        <div className="bg-[#F5F5F5] rounded px-5 py-2 flex items-center gap-[34px] min-w-[200px]">
-          <input
-            type="text"
-            placeholder="What are you looking for?"
-            className="bg-transparent text-xs text-black placeholder:text-black placeholder:opacity-50 outline-none flex-1"
-          />
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            className="cursor-pointer flex-shrink-0"
-          >
-            <path
-              d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-              stroke="black"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+            <Link
+              href="/contact"
+              className={`text-base font-normal text-black leading-6 whitespace-nowrap ${
+                pathname === '/contact' ? 'underline decoration-black' : 'hover:underline hover:decoration-black'
+              }`}
+            >
+              Contact
+            </Link>
+            <Link
+              href="/about"
+              className={`text-base font-normal text-black leading-6 whitespace-nowrap ${
+                pathname === '/about' ? 'underline decoration-black' : 'hover:underline hover:decoration-black'
+              }`}
+            >
+              About
+            </Link>
+            {!isAuthenticated && (
+              <Link
+                href="/signup"
+                className={`text-base font-normal text-black leading-6 whitespace-nowrap ${
+                  pathname === '/signup' ? 'underline decoration-black' : 'hover:underline hover:decoration-black'
+                }`}
+              >
+                Sign Up
+              </Link>
+            )}
+          </nav>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4 lg:gap-6 lg:ml-8">
+          <div className="hidden sm:flex bg-[#F5F5F5] rounded px-3 sm:px-5 py-2 flex items-center gap-2 sm:gap-[34px] min-w-[150px] sm:min-w-[200px]">
+            <input
+              type="text"
+              placeholder="What are you looking for?"
+              className="bg-transparent text-xs text-black placeholder:text-black placeholder:opacity-50 outline-none flex-1"
+            />
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="cursor-pointer flex-shrink-0 sm:w-6 sm:h-6"
+            >
+              <path
+                d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                stroke="black"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+          <div className="flex items-center gap-3 sm:gap-4">
           <Link
             href="/wishlist"
-            className="w-8 h-8 flex items-center justify-center cursor-pointer hover:opacity-70"
+            className="w-10 h-10 sm:w-8 sm:h-8 flex items-center justify-center cursor-pointer hover:opacity-70"
             aria-label="Wishlist"
           >
             <svg
@@ -138,7 +140,7 @@ export const Header = () => {
           </Link>
           <Link
             href="/cart"
-            className="w-8 h-8 flex items-center justify-center cursor-pointer hover:opacity-70 relative"
+            className="w-10 h-10 sm:w-8 sm:h-8 flex items-center justify-center cursor-pointer hover:opacity-70 relative"
             aria-label="Cart"
           >
             <svg
@@ -160,7 +162,7 @@ export const Header = () => {
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className="w-8 h-8 flex items-center justify-center cursor-pointer hover:opacity-70"
+              className="w-10 h-10 sm:w-8 sm:h-8 flex items-center justify-center cursor-pointer hover:opacity-70"
               aria-label="Account"
               aria-expanded={isDropdownOpen}
             >
@@ -231,9 +233,100 @@ export const Header = () => {
               </div>
             )}
           </div>
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden w-10 h-10 flex items-center justify-center cursor-pointer hover:opacity-70"
+            aria-label="Menu"
+            aria-expanded={isMobileMenuOpen}
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="black"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              {isMobileMenuOpen ? (
+                <path d="M18 6L6 18M6 6l12 12" />
+              ) : (
+                <path d="M3 12h18M3 6h18M3 18h18" />
+              )}
+            </svg>
+          </button>
         </div>
       </div>
-    </div>
+      {isMobileMenuOpen && (
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50 mt-2">
+          <nav className="flex flex-col py-4">
+            <Link
+              href="/"
+              className={`px-4 py-3 text-base font-normal text-black ${
+                pathname === '/' ? 'bg-gray-50 underline decoration-black' : 'hover:bg-gray-50'
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <Link
+              href="/contact"
+              className={`px-4 py-3 text-base font-normal text-black ${
+                pathname === '/contact' ? 'bg-gray-50 underline decoration-black' : 'hover:bg-gray-50'
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Contact
+            </Link>
+            <Link
+              href="/about"
+              className={`px-4 py-3 text-base font-normal text-black ${
+                pathname === '/about' ? 'bg-gray-50 underline decoration-black' : 'hover:bg-gray-50'
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              About
+            </Link>
+            {!isAuthenticated && (
+              <Link
+                href="/signup"
+                className={`px-4 py-3 text-base font-normal text-black ${
+                  pathname === '/signup' ? 'bg-gray-50 underline decoration-black' : 'hover:bg-gray-50'
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Sign Up
+              </Link>
+            )}
+            <div className="px-4 py-3 border-t border-gray-200 mt-2">
+              <div className="bg-[#F5F5F5] rounded px-3 py-2 flex items-center gap-2">
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  className="bg-transparent text-xs text-black placeholder:text-black placeholder:opacity-50 outline-none flex-1"
+                />
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  className="cursor-pointer flex-shrink-0"
+                >
+                  <path
+                    d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                    stroke="black"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+          </nav>
+        </div>
+      )}
+    </>
   );
 };
 

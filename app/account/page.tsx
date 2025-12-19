@@ -99,7 +99,7 @@ export default function Account() {
         <main className="min-h-screen bg-white">
           <TopHeader />
           <div className="border-b border-gray-200" />
-          <div className="px-[135px] py-6">
+          <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-6">
             <Header />
           </div>
           <div className="flex items-center justify-center min-h-[400px]">
@@ -115,13 +115,13 @@ export default function Account() {
       <main className="min-h-screen bg-white">
         <TopHeader />
         <div className="border-b border-gray-200" />
-        <div className="px-[135px] py-6">
+        <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-6">
           <Header />
         </div>
         <div className="border-b border-gray-200" />
 
         {/* Breadcrumb and Welcome Message */}
-        <div className="px-[135px] py-4">
+        <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Link
@@ -153,8 +153,8 @@ export default function Account() {
           </div>
         </div>
 
-        <div className="px-[135px] py-16">
-          <div className="max-w-[1170px] mx-auto flex gap-[75px] items-start">
+        <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-8 sm:py-12 lg:py-16">
+          <div className="max-w-[1170px] mx-auto flex flex-col lg:flex-row gap-8 lg:gap-[75px] items-start">
             {/* Left Sidebar - Account Navigation */}
             <div className="w-[200px] flex flex-col gap-12">
               {/* Manage My Account Section */}

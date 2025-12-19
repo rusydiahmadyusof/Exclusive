@@ -11,13 +11,13 @@ export const Footer = () => {
             <h3 className="text-2xl font-bold mb-4">Exclusive</h3>
             <p className="text-sm mb-4">Subscribe</p>
             <p className="text-sm mb-4">Get 10% off your first order</p>
-            <div className="flex">
+            <div className="flex w-full sm:w-auto">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="bg-transparent border border-white/30 rounded-l px-4 py-2 text-sm outline-none"
+                className="bg-transparent border border-white/30 rounded-l px-3 sm:px-4 py-2 text-xs sm:text-sm outline-none flex-1 min-w-0"
               />
-              <button className="bg-[#DB4444] px-4 py-2 rounded-r hover:bg-[#c03939] transition-colors">
+              <button className="bg-[#DB4444] px-3 sm:px-4 py-2 rounded-r hover:bg-[#c03939] transition-colors flex-shrink-0">
                 →
               </button>
             </div>
@@ -98,11 +98,11 @@ export const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-white/20 flex items-center justify-between">
-          <p className="text-sm">
+        <div className="mt-8 pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs sm:text-sm text-center sm:text-left">
             © Copyright Rimel 2022. All right reserved
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-3 sm:gap-4">
             <Link href="#" className="hover:opacity-70">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />

@@ -96,13 +96,13 @@ export default function About() {
     <main className="min-h-screen bg-white">
       <TopHeader />
       <div className="border-b border-gray-200" />
-      <div className="px-[135px] py-6">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-6">
         <Header />
       </div>
       <div className="border-b border-gray-200" />
 
       {/* Breadcrumb */}
-      <div className="px-[135px] py-4">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-4">
         <div className="flex items-center gap-3">
           <Link
             href="/"
@@ -130,8 +130,8 @@ export default function About() {
       </div>
 
       {/* Our Story Section */}
-      <div className="px-[135px] py-16">
-        <div className="max-w-[1170px] mx-auto flex gap-[30px] items-start">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-8 sm:py-12 lg:py-16">
+        <div className="max-w-[1170px] mx-auto flex flex-col lg:flex-row gap-6 lg:gap-[30px] items-start">
           {/* Left Column - Text */}
           <div className="flex-1 flex flex-col gap-10">
             <h1 className="text-[54px] font-semibold leading-[64px] tracking-[3.24px] text-black">
@@ -166,8 +166,8 @@ export default function About() {
       </div>
 
       {/* Statistics Section */}
-      <div className="px-[135px] py-16">
-        <div className="max-w-[1170px] mx-auto flex gap-[30px]">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-8 sm:py-12 lg:py-16">
+        <div className="max-w-[1170px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-[30px]">
           {statistics.map((stat, index) => (
             <div
               key={index}
@@ -202,8 +202,8 @@ export default function About() {
       </div>
 
       {/* Team Section */}
-      <div className="px-[135px] py-16">
-        <div className="max-w-[1170px] mx-auto flex gap-[30px]">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-8 sm:py-12 lg:py-16">
+        <div className="max-w-[1170px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-[30px]">
           {teamMembers.map((member, index) => (
             <div key={index} className="flex-1 flex flex-col gap-8">
               <div className="bg-[#F5F5F5] h-[430px] rounded relative overflow-hidden">
@@ -292,8 +292,8 @@ export default function About() {
       </div>
 
       {/* Services Section */}
-      <div className="px-[135px] py-16">
-        <div className="max-w-[1170px] mx-auto flex gap-[88px] justify-center">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-8 sm:py-12 lg:py-16">
+        <div className="max-w-[1170px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-[88px] justify-center">
           {services.map((service, index) => (
             <div key={index} className="flex flex-col gap-6 items-center">
               <div className="w-20 h-20 flex items-center justify-center">{service.icon}</div>

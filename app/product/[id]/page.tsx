@@ -77,7 +77,7 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
       <main className="min-h-screen bg-white">
         <TopHeader />
         <div className="border-b border-gray-200" />
-        <div className="px-[135px] py-6">
+        <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-6">
           <Header />
         </div>
         <div className="flex items-center justify-center min-h-[400px]">
@@ -92,7 +92,7 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
       <main className="min-h-screen bg-white">
         <TopHeader />
         <div className="border-b border-gray-200" />
-        <div className="px-[135px] py-6">
+        <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-6">
           <Header />
         </div>
         <div className="flex items-center justify-center min-h-[400px]">
@@ -111,13 +111,13 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
     <main className="min-h-screen bg-white">
       <TopHeader />
       <div className="border-b border-gray-200" />
-      <div className="px-[135px] py-6">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-6">
         <Header />
       </div>
       <div className="border-b border-gray-200" />
 
       {/* Breadcrumb */}
-      <div className="px-[135px] py-4">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-4">
         <div className="flex items-center gap-3">
           <Link
             href="/account"
@@ -167,17 +167,17 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
         </div>
       </div>
 
-      <div className="px-[135px] py-16">
-        <div className="max-w-[1170px] mx-auto flex gap-[30px]">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-8 sm:py-12 lg:py-16">
+        <div className="max-w-[1170px] mx-auto flex flex-col lg:flex-row gap-6 lg:gap-[30px]">
           {/* Left Column - Product Images */}
-          <div className="flex gap-5">
+          <div className="flex flex-row lg:flex-row gap-3 sm:gap-4 lg:gap-5">
             {/* Thumbnail Images */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-row lg:flex-col gap-2 sm:gap-3 lg:gap-4 order-2 lg:order-1">
               {productImages.slice(0, 4).map((image, index) => (
                 <button
                   key={index}
                   onClick={() => setSelectedImage(index)}
-                  className={`bg-[#F5F5F5] h-[138px] w-[170px] rounded relative overflow-hidden ${
+                  className={`bg-[#F5F5F5] h-[60px] w-[60px] sm:h-[100px] sm:w-[100px] lg:h-[138px] lg:w-[170px] rounded relative overflow-hidden flex-shrink-0 ${
                     selectedImage === index ? 'ring-2 ring-[#DB4444]' : ''
                   } transition-all`}
                 >
@@ -196,7 +196,7 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
             </div>
 
             {/* Main Product Image */}
-            <div className="bg-[#F5F5F5] h-[600px] w-[500px] rounded relative overflow-hidden">
+            <div className="bg-[#F5F5F5] h-[300px] sm:h-[400px] lg:h-[600px] w-full lg:w-[500px] rounded relative overflow-hidden order-1 lg:order-2">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative w-full h-full">
                   <Image
@@ -211,8 +211,8 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
           </div>
 
           {/* Right Column - Product Details */}
-          <div className="flex-1 flex flex-col gap-6">
-            <h1 className="text-2xl font-semibold leading-6 tracking-[0.72px] text-black">
+          <div className="flex-1 flex flex-col gap-4 sm:gap-6">
+            <h1 className="text-xl sm:text-2xl font-semibold leading-tight sm:leading-6 tracking-[0.5px] sm:tracking-[0.72px] text-black">
               {product.name}
             </h1>
 

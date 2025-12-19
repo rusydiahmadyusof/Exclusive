@@ -60,8 +60,8 @@ export const CategorySidebar = () => {
   };
 
   return (
-    <div className="relative w-[217px] h-[344px]">
-      <div className="flex flex-col gap-5">
+    <div className="relative w-full lg:w-[217px] min-h-[200px] lg:h-[344px] hidden lg:block">
+      <div className="flex flex-col gap-3 sm:gap-4 lg:gap-5">
         {categories.map((category, index) => (
           <div
             key={index}
@@ -71,21 +71,21 @@ export const CategorySidebar = () => {
           >
             <Link
               href={`/category/${category.name.toLowerCase().replace(/\s+/g, '-')}`}
-              className="text-base font-normal leading-6 text-black hover:text-[#DB4444] transition-colors"
+              className="text-sm sm:text-base font-normal leading-6 text-black hover:text-[#DB4444] transition-colors"
             >
               {category.name}
             </Link>
             {category.hasDropdown && (
               <svg
-                width="24"
-                height="24"
+                width="20"
+                height="20"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="black"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className={`transition-transform ${
+                className={`transition-transform sm:w-6 sm:h-6 ${
                   openDropdown === category.name ? 'rotate-180' : ''
                 }`}
               >
@@ -93,12 +93,12 @@ export const CategorySidebar = () => {
               </svg>
             )}
             {openDropdown === category.name && category.subcategories && (
-              <div className="absolute left-full top-0 ml-2 w-[200px] bg-white border border-gray-200 rounded-[4px] shadow-lg z-50 py-2">
+              <div className="absolute left-full top-0 ml-2 w-[180px] sm:w-[200px] bg-white border border-gray-200 rounded-[4px] shadow-lg z-50 py-2">
                 {category.subcategories.map((subcategory, subIndex) => (
                   <Link
                     key={subIndex}
                     href={`/category/${category.name.toLowerCase().replace(/\s+/g, '-')}/${subcategory.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="block px-4 py-2 text-base font-normal leading-6 text-black hover:bg-gray-50 hover:text-[#DB4444] transition-colors"
+                    className="block px-3 sm:px-4 py-2 text-sm sm:text-base font-normal leading-6 text-black hover:bg-gray-50 hover:text-[#DB4444] transition-colors"
                     onClick={() => setOpenDropdown(null)}
                   >
                     {subcategory}

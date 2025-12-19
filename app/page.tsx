@@ -14,17 +14,17 @@ export default function Home() {
     <main className="min-h-screen">
       <TopHeader />
       <div className="border-b border-gray-200" />
-      <div className="px-[135px] py-6">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-6">
         <Header />
       </div>
       <div className="border-b border-gray-200" />
-      <div className="px-[135px] py-8">
-        <div className="flex gap-[78px]">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-4 sm:py-6 lg:py-8">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 xl:gap-[78px]">
           <CategorySidebar />
           <Hero />
         </div>
       </div>
-      <div className="px-[135px]">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px]">
         <FlashSales />
         <Categories />
         <BestSelling />

@@ -122,7 +122,7 @@ export default function Checkout() {
       <main className="min-h-screen bg-white">
         <TopHeader />
         <div className="border-b border-gray-200" />
-        <div className="px-[135px] py-6">
+        <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-6">
           <Header />
         </div>
         <div className="flex items-center justify-center min-h-[400px]">
@@ -137,7 +137,7 @@ export default function Checkout() {
       <main className="min-h-screen bg-white">
         <TopHeader />
         <div className="border-b border-gray-200" />
-        <div className="px-[135px] py-6">
+        <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-6">
           <Header />
         </div>
         <div className="flex items-center justify-center min-h-[400px]">
@@ -157,13 +157,13 @@ export default function Checkout() {
       <main className="min-h-screen bg-white">
         <TopHeader />
         <div className="border-b border-gray-200" />
-        <div className="px-[135px] py-6">
+        <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-6">
           <Header />
         </div>
         <div className="border-b border-gray-200" />
 
       {/* Breadcrumb */}
-      <div className="px-[135px] py-4">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-4">
         <div className="flex items-center gap-3">
           <Link
             href="/account"
@@ -253,11 +253,11 @@ export default function Checkout() {
         </div>
       </div>
 
-      <div className="px-[135px] py-16">
-        <div className="max-w-[1170px] mx-auto flex gap-[173px] items-start">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-8 sm:py-12 lg:py-16">
+        <div className="max-w-[1170px] mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-[173px] items-start">
           {/* Left Column - Billing Details */}
-          <div className="flex-1 flex flex-col gap-6">
-            <h1 className="text-[36px] font-medium leading-[30px] tracking-[1.44px] text-black mb-6">
+          <div className="flex-1 flex flex-col gap-6 w-full">
+            <h1 className="text-2xl sm:text-3xl lg:text-[36px] font-medium leading-tight lg:leading-[30px] tracking-[0.5px] sm:tracking-[1px] lg:tracking-[1.44px] text-black mb-4 sm:mb-6">
               Billing Details
             </h1>
 
@@ -542,7 +542,7 @@ export default function Checkout() {
           </div>
 
           {/* Right Column - Order Summary */}
-          <div className="w-[470px] flex flex-col gap-8">
+          <div className="w-full lg:w-[470px] flex flex-col gap-6 sm:gap-8 lg:sticky lg:top-4">
             {/* Order Items */}
             <div className="flex flex-col gap-8">
               {cartItems.map((item) => (
@@ -555,11 +555,12 @@ export default function Checkout() {
                       className="object-contain"
                     />
                   </div>
-                  <div className="flex items-center justify-between flex-1 gap-[210px]">
-                    <p className="text-base font-normal leading-6 text-black">
-                      {item.product?.name || 'Product'} x{item.quantity}
+                  <div className="flex items-center justify-between flex-1 gap-4 sm:gap-[210px]">
+                    <p className="text-sm sm:text-base font-normal leading-6 text-black flex-1 min-w-0">
+                      <span className="truncate block">{item.product?.name || 'Product'}</span>
+                      <span className="text-xs sm:text-sm opacity-70">x{item.quantity}</span>
                     </p>
-                    <p className="text-base font-normal leading-6 text-black">
+                    <p className="text-sm sm:text-base font-normal leading-6 text-black flex-shrink-0">
                       RM {((item.product?.price || 0) * item.quantity).toFixed(2)}
                     </p>
                   </div>
@@ -591,7 +592,7 @@ export default function Checkout() {
 
             {/* Payment Methods */}
             <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-[155px]">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-[155px]">
                 <div className="flex items-center gap-4">
                   <input
                     type="radio"

@@ -30,9 +30,11 @@ export const FlashSales = () => {
   return (
     <section className="w-full max-w-[1170px] mx-auto py-16">
       <SectionHeader badge="Today's" title="Flash Sales" showArrows />
-      <div className="mt-12 flex gap-[30px] overflow-x-auto pb-4">
+      <div className="mt-8 sm:mt-12 flex gap-4 sm:gap-[30px] overflow-x-auto pb-4 scrollbar-hide">
         {products.slice(0, 4).map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <div key={product.id} className="min-w-[250px] sm:min-w-[270px] flex-shrink-0">
+            <ProductCard product={product} />
+          </div>
         ))}
       </div>
     </section>

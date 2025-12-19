@@ -62,13 +62,13 @@ export default function Cart() {
       <main className="min-h-screen bg-white">
         <TopHeader />
         <div className="border-b border-gray-200" />
-        <div className="px-[135px] py-6">
+        <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-6">
           <Header />
         </div>
         <div className="border-b border-gray-200" />
 
         {/* Breadcrumb */}
-        <div className="px-[135px] py-4">
+        <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-4">
           <div className="flex items-center gap-3">
             <Link
               href="/"
@@ -95,8 +95,8 @@ export default function Cart() {
           </div>
         </div>
 
-        <div className="px-[135px] py-16">
-          <div className="max-w-[1170px] mx-auto flex flex-col gap-20">
+        <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-8 sm:py-12 lg:py-16">
+          <div className="max-w-[1170px] mx-auto flex flex-col gap-8 sm:gap-12 lg:gap-20">
             {isLoading ? (
               <div className="flex items-center justify-center py-20">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#DB4444]"></div>

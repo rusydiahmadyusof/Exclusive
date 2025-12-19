@@ -48,13 +48,13 @@ export default function Wishlist() {
       <main className="min-h-screen bg-white">
         <TopHeader />
         <div className="border-b border-gray-200" />
-        <div className="px-[135px] py-6">
+        <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-6">
           <Header />
         </div>
         <div className="border-b border-gray-200" />
 
-        <div className="px-[135px] py-16">
-          <div className="flex flex-col gap-20 max-w-[1170px] mx-auto">
+        <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-8 sm:py-12 lg:py-16">
+          <div className="flex flex-col gap-8 sm:gap-12 lg:gap-20 max-w-[1170px] mx-auto">
             {/* Wishlist Section */}
             <div className="flex flex-col gap-[60px]">
               <div className="flex items-center justify-between">

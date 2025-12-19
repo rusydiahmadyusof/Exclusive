@@ -43,15 +43,15 @@ export default function SignUp() {
     <main className="min-h-screen bg-white">
       <TopHeader />
       <div className="border-b border-gray-200" />
-      <div className="px-[135px] py-6">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-6">
         <Header />
       </div>
       <div className="border-b border-gray-200" />
 
-      <div className="flex items-center justify-center min-h-[calc(100vh-200px)] px-[135px] py-12">
-        <div className="flex gap-[129px] items-center w-full max-w-[1440px]">
+      <div className="flex items-center justify-center min-h-[calc(100vh-200px)] px-4 sm:px-6 lg:px-8 xl:px-[135px] py-8 sm:py-12">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-[129px] items-center w-full max-w-[1440px]">
           {/* Left Side - Image */}
-          <div className="bg-[#cbe4e8] rounded-tr-[4px] rounded-br-[4px] w-[805px] h-[781px] relative overflow-hidden flex items-center justify-center shrink-0">
+          <div className="bg-[#cbe4e8] rounded-tr-[4px] rounded-br-[4px] w-full lg:w-[805px] h-[400px] sm:h-[500px] lg:h-[781px] relative overflow-hidden flex items-center justify-center shrink-0 hidden lg:flex">
             <div className="absolute left-[-8px] top-[75px] w-[919px] h-[706px]">
               <Image
                 src="/images/75f394c0a1c7dc5b68a42239311e510f54d8cd59.png"
@@ -64,9 +64,9 @@ export default function SignUp() {
           </div>
 
           {/* Right Side - Form */}
-          <div className="flex flex-col gap-12 items-start shrink-0">
-            <div className="flex flex-col gap-6 items-start">
-              <h1 className="text-[36px] font-medium leading-[30px] tracking-[1.44px] text-black">
+          <div className="flex flex-col gap-8 sm:gap-12 items-start shrink-0 w-full lg:w-auto">
+            <div className="flex flex-col gap-4 sm:gap-6 items-start w-full">
+              <h1 className="text-2xl sm:text-3xl lg:text-[36px] font-medium leading-tight lg:leading-[30px] tracking-[0.5px] sm:tracking-[1px] lg:tracking-[1.44px] text-black">
                 Create an account
               </h1>
               <p className="text-base font-normal leading-6 text-black">

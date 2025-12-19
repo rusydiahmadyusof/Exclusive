@@ -17,7 +17,7 @@ export default function OrderHistory() {
         <main className="min-h-screen bg-white">
           <TopHeader />
           <div className="border-b border-gray-200" />
-          <div className="px-[135px] py-6">
+          <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-6">
             <Header />
           </div>
           <div className="flex items-center justify-center min-h-[400px]">
@@ -33,13 +33,13 @@ export default function OrderHistory() {
       <main className="min-h-screen bg-white">
         <TopHeader />
         <div className="border-b border-gray-200" />
-        <div className="px-[135px] py-6">
+        <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-6">
           <Header />
         </div>
         <div className="border-b border-gray-200" />
 
         {/* Breadcrumb */}
-        <div className="px-[135px] py-4">
+        <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-4">
           <div className="flex items-center gap-3">
             <Link
               href="/"
@@ -63,9 +63,9 @@ export default function OrderHistory() {
           </div>
         </div>
 
-        <div className="px-[135px] py-16">
+        <div className="px-4 sm:px-6 lg:px-8 xl:px-[135px] py-8 sm:py-12 lg:py-16">
           <div className="max-w-[1170px] mx-auto">
-            <h1 className="text-2xl font-medium text-black mb-8">Order History</h1>
+            <h1 className="text-xl sm:text-2xl font-medium text-black mb-6 sm:mb-8">Order History</h1>
 
             {orders && orders.length > 0 ? (
               <div className="space-y-6">
